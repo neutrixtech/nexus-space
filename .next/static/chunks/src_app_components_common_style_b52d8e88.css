@@ -1,0 +1,27 @@
+/* [project]/src/app/components/common/style.css [app-client] (css) */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Oswald, sans-serif;
+  background: linear-gradient(45deg, #d4af37, gold, orange, gold, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px #ffb900cc, 4px 4px 6px #ff8c0099;
+  letter-spacing: 2px;
+  display: inline-block;
+  text-transform: uppercase;
+  margin-top: 7px;
+}
+
+.logo:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 48%;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, gold, orange, gold, #d4af37);
+  border-radius: 4px;
+}
+
+/*# sourceMappingURL=src_app_components_common_style_b52d8e88.css.map*/

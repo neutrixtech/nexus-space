@@ -1,0 +1,24 @@
+/* [project]/src/app/components/Home/homeStyle.css [app-client] (css) */
+.heroBlock .content {
+  max-width: none !important;
+}
+
+.hero-heading {
+  font-size: 54px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px #0009;
+}
+
+.overlay {
+  border-image: linear-gradient(#000066b3, #660000b3) 1 fill;
+}
+
+@media (width <= 768px) {
+  .hero-heading {
+    font-size: 36px;
+  }
+}
+
+/*# sourceMappingURL=src_app_components_Home_homeStyle_b52d8e88.css.map*/

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/components/Home/homeStyle.css"],"sourcesContent":[".heroBlock .content {\n  max-width: none !important;\n  /* margin-top: -160px; */\n}\n\n.hero-heading {\n  font-size: 54px;\n  font-weight: 900;\n  color: #fff;\n  margin-bottom: 16px;\n  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);\n}\n\n.overlay {\n  border-image: linear-gradient(rgb(0 0 102 / 70%), rgb(102 0 0 / 70%)) 1 fill;\n}\n\n@media (max-width: 768px) {\n  .hero-heading {\n    font-size: 36px;\n  }\n}"],"names":[],"mappings":"AAAA;;;;AAKA;;;;;;;;AAQA;;;;AAIA;EACE"}}]
+}

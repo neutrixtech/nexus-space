@@ -1,0 +1,22 @@
+.heroBlock .content {
+  max-width: none !important;
+  /* margin-top: -160px; */
+}
+
+.hero-heading {
+  font-size: 54px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.overlay {
+  border-image: linear-gradient(rgb(0 0 102 / 70%), rgb(102 0 0 / 70%)) 1 fill;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 36px;
+  }
+}

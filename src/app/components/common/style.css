@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif; /* Bold, modern font */
+  /* background: linear-gradient(45deg, #FFD700, #FFB700, #FFD700, #FF9A00); */
+  background: linear-gradient(45deg, #D4AF37, #FFD700, #FFA500, #FFD700, #D4AF37); /* Gold gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(255, 185, 0, 0.8), 
+               4px 4px 6px rgba(255, 140, 0, 0.6); /* Shadow for depth */
+  letter-spacing: 2px; /* Spacing for bold look */
+  display: inline-block;
+  text-transform: uppercase; /* Capitalize for a strong look */
+  margin-top: 7px;
+}
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* Adjust underline position */
+  width: 48%;
+  height: 3px; /* Thickness of the underline */
+  background: linear-gradient(90deg, #D4AF37, #FFD700, #FFA500, #FFD700, #D4AF37); /* Gold gradient */
+  border-radius: 4px; /* Soft rounded edges */
+}
