@@ -8,11 +8,12 @@ const { TextArea } = Input;
 
 const AppContact = () => {
   const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
 
   const onFinish = useCallback(async (values) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5002/submit-form", {
+      const response = await fetch("http://localhost:5003/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -21,6 +22,7 @@ const AppContact = () => {
       const result = await response.json();
       if (result.success) {
         message.success("Form submitted successfully!");
+        form.resetFields();
       } else {
         message.error("Failed to submit the form.");
       }
@@ -30,7 +32,7 @@ const AppContact = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [form]);
 
   return (
     <div id="contact" className="block contactBlock">
@@ -39,6 +41,7 @@ const AppContact = () => {
           <h2 className="contact-heading">Contact Us</h2>
         </div>
         <Form
+          form={form}
           name="contact_form"
           className="contact-form"
           initialValues={{ remember: true }}
