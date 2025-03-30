@@ -1,14 +1,35 @@
 "use client";
 
-import React, { useCallback } from "react";
-import { Form, Input, Button } from "antd";
+import React, { useCallback, useState } from "react";
+import { Form, Input, Button, message } from "antd";
 import "../website.css";
 
 const { TextArea } = Input;
 
 const AppContact = () => {
-  const onFinish = useCallback((values) => {
-    console.log("Received values:", values);
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = useCallback(async (values) => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:5002/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        message.success("Form submitted successfully!");
+      } else {
+        message.error("Failed to submit the form.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      message.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   return (
@@ -25,7 +46,7 @@ const AppContact = () => {
         >
           <Form.Item
             name="fullname"
-            rules={[{ required: true, message: "Please input your full name" }]}
+            rules={[{ required: true, message: "Please enter your full name" }]}
           >
             <Input placeholder="Full Name" />
           </Form.Item>
@@ -34,20 +55,35 @@ const AppContact = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your email",
+                message: "Please enter your email",
                 type: "email",
               },
             ]}
           >
             <Input placeholder="Email Address" />
           </Form.Item>
-          <Form.Item name="telephone">
+          <Form.Item
+            name="telephone"
+            rules={[
+              {
+                required: true,
+                message: "Please enter your phone number",
+              },
+              {
+                pattern: /^[0-9]{10}$/,
+                message: "Enter a valid 10-digit phone number",
+              },
+            ]}
+          >
             <Input placeholder="Phone Number" />
           </Form.Item>
           <Form.Item name="subject">
             <Input placeholder="Subject" />
           </Form.Item>
-          <Form.Item name="message">
+          <Form.Item
+            name="message"
+            rules={[{ required: true, message: "Please enter your message" }]}
+          >
             <TextArea placeholder="Message" />
           </Form.Item>
           <Form.Item>
@@ -55,6 +91,7 @@ const AppContact = () => {
               type="primary"
               htmlType="submit"
               className="contact-form-button"
+              loading={loading}
             >
               Submit
             </Button>
